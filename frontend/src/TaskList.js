@@ -14,6 +14,7 @@ const TaskList = () => {
     const handleDelete = (taskId) => {
         axios.delete(`http://127.0.0.1:8000/api/tasks/${taskId}/`)
             .then(() => {
+                // Atualize o estado para remover a tarefa excluída da lista
                 setTasks(tasks.filter(task => task.id !== taskId));
             })
             .catch(error => {
@@ -21,7 +22,22 @@ const TaskList = () => {
             });
     }
 
+    const handleToggleStatus = (task) => {
+        const newStatus = task.status === 'nao_feito' ? 'feito' : 'nao_feito';
 
+        axios.patch(`http://127.0.0.1:8000/api/tasks/${task.id}/`, {
+            status: newStatus
+        })
+        .then(response => {
+            const updatedTasks = tasks.map(t =>
+                t.id === task.id ? {...t, status: newStatus} : t
+            );
+            setTasks(updatedTasks);
+        })
+        .catch(error => {
+            console.error("Erro ao atualizar status da tarefa:", error);
+        });
+    }
 
     return (
         <div>
@@ -30,6 +46,9 @@ const TaskList = () => {
                 {tasks.map(task => (
                     <li key={task.id}>
                         {task.title} - {task.limit_date} - {task.status}
+                        <button onClick={() => handleToggleStatus(task)}>
+                            {task.status === 'nao_feito' ? 'Marcar como Feita' : 'Marcar como Não Feita'}
+                        </button>
                         <button onClick={() => handleDelete(task.id)}>Excluir</button>
                     </li>
                 ))}
