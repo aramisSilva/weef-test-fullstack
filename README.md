@@ -8,6 +8,8 @@ O projeto depende dos seguintes pacotes:
 - Python 3.8 ou superior
 - Django 4.2
 - Django Rest Framework 3.14
+- React.js
+- Axios.js
 
 ## Instalação
 
