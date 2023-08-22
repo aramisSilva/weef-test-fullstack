@@ -29,7 +29,7 @@ O projeto depende dos seguintes pacotes:
 
 ### DOCKER
 1. Caso tenha o docker instalado em sua máquina, basta apenas executar o comando: `docker compose up --build`
-2. Obs: Caso o container já tenha buildado o container, basta apenas rodar o comando: `docker compose up`
+2. Obs: Caso o container já tenha sido buildado, basta apenas rodar o comando: `docker compose up`
 
 O Projeto é capaz de criar, deletar e listar(Retrieve) as tarefas que existem no banco de dados.
 Também implementei uma função bônus que é a de marcar como feita(caso a tarefa seja concluída) e de marcar como não feita(caso a tarefa esteja marcada como feita).
