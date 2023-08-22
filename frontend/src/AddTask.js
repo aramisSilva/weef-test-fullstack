@@ -6,7 +6,6 @@ function AddTask({ onTaskAdded }) {
     const [limiteDate, setLimiteDate] = useState('');
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Enviando', {title, status:'nao_feito', limiteDate});
         axios.post('http://localhost:8000/api/tasks/', {
             title: title,
             status: 'nao_feito',
