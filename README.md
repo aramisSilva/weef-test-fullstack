@@ -23,5 +23,9 @@ O projeto depende dos seguintes pacotes:
 7. Agora por último execute o projeto: `python manage.py runserver`
 
 ### Frontend
+1. Para instalar as dependências do frontend é mais simples. Basta navegar até a pasta do frontend: `cd frontend`
+2. executar o comando: `npm install`
+3. e depois: `npm start`
 
-
+O Projeto é capaz de criar, deletar e listar(Retrieve) as tarefas que existem no banco de dados.
+Também implementei uma função bônus que é a de marcar como feita(caso a tarefa seja concluída) e de marcar como não feita(caso a tarefa esteja marcada como feita).
